@@ -48,7 +48,7 @@ readyButton.addEventListener('click', function() {
 });
 
 
-// Function to display the modal
+// Function to display the modal for the BATTLE SCORE
 function openModal() {
   document.getElementById('popupModal').style.display = 'block';
 }
@@ -62,6 +62,16 @@ function closeModal() {
 document.getElementById('scoreButton').addEventListener('click', function() {
   openModal();
 });
+
+
+
+// Log In button click event listener
+
+document.getElementById('loginButton').addEventListener('click', function() {
+  // Open a pop-up window when Log In button is clicked
+  window.open('login.html', 'LoginWindow', 'width=400,height=400');
+});
+
 
 
 // Function to change table caption
@@ -118,3 +128,8 @@ gameTable.addEventListener('drop', function(event) {
   }
 });
 
+
+document.getElementById('loginButton').addEventListener('click', function() {
+  // Open a larger pop-up window when Log In button is clicked
+  window.open('login.html', 'LoginWindow', 'width=5020,height=400');
+});

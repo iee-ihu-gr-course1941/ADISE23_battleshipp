@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Log In</title>
+  <style>
+
+    /* Style for the login form */
+    body {
+      font-size: xx-large;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background-color: #f4f4f4;
+    }
+    .login-container {
+      width: 300px;
+      margin: 0 auto;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    .login-container h2 {
+      text-align: center;
+    }
+    .login-form {
+      display: flex;
+      flex-direction: column;
+    }
+    .login-form input[type="text"],
+    .login-form input[type="password"],
+    .login-form input[type="submit"] {
+      margin-bottom: 15px;
+      padding: 8px;
+      border-radius: 3px;
+      border: 1px solid #ccc;
+      font-size: 20px;
+    }
+    .login-form input[type="submit"] {
+      cursor: pointer;
+      background-color: #614caf;
+      color: #fff;
+      border: none;
+    }
+    .login-form input[type="submit"]:hover {
+      background-color: #231b68;
+    }
+  </style>
+</head>
+<body>
+  <div class="login-container">
+    <h2>Welcome</h2>
+    <form class="login-form">
+      <input type="text" id="username" placeholder="Username">
+      <input type="password" id="password" placeholder="Password">
+      <input type="submit" value="Log In">
+    </form>
+  </div>
+
+  <script>
+    // JavaScript code for handling login functionality
+    document.getElementById('loginSubmit').addEventListener('click', function(event) {
+      event.preventDefault(); // Prevent form submission
+
+      // Get the entered username and password
+      const username = document.getElementById('username').value;
+      const password = document.getElementById('password').value;
+
+      // Example: Validate username and password (Replace with your logic)
+      if (username === 'user' && password === 'password') {
+        alert('Login successful!'); // Replace this with your login logic
+        // Example: Redirect to another page after successful login
+        // window.location.href = 'welcome.html';
+      } else {
+        alert('Invalid username or password.'); // Replace this with your login failure logic
+      }
+    });
+
+
+
+
+  </script>
+
+</body>
+</html>
