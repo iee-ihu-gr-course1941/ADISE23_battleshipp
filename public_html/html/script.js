@@ -33,3 +33,88 @@ startButton.addEventListener('click', function() {
   }
 });
 
+
+// ReadyButton click event
+const readyButton = document.getElementById('ReadyButton');
+readyButton.addEventListener('click', function() {
+  const selectedTeam = document.getElementById('gameOptions').value;
+  if (selectedTeam === 'option1') {
+    readyButton.classList.add('red-team-background'); // Add a class for Red Team background
+    readyButton.classList.remove('blue-team-background'); // Remove the Blue Team background class if present
+  } else if (selectedTeam === 'option2') {
+    readyButton.classList.add('blue-team-background'); // Add a class for Blue Team background
+    readyButton.classList.remove('red-team-background'); // Remove the Red Team background class if present
+  }
+});
+
+
+// Function to display the modal
+function openModal() {
+  document.getElementById('popupModal').style.display = 'block';
+}
+
+// Function to close the modal
+function closeModal() {
+  document.getElementById('popupModal').style.display = 'none';
+}
+
+// 'Battle Score' button click event to show the modal
+document.getElementById('scoreButton').addEventListener('click', function() {
+  openModal();
+});
+
+
+// Function to change table caption
+function changeTableCaption() {
+  const playerNameInput = document.getElementById('playerName');
+  const tableCaption = document.getElementById('tableCaption');
+  const playerName = playerNameInput.value.trim(); // Get and trim the entered name
+
+  if (playerName !== '') {
+    tableCaption.textContent = playerName; // Set the table caption to the entered name
+  }
+}
+
+// ReadyButton click event
+document.getElementById('ReadyButton').addEventListener('click', function() {
+  changeTableCaption(); // Change table caption on button click
+});
+
+// Event listener for page load
+window.addEventListener('load', function() {
+  const playerNameInput = document.getElementById('playerName');
+  playerNameInput.value = ''; // Clear input on page load
+});
+
+
+
+// DRAG AND DROP 
+
+
+
+const boatIcons = document.querySelectorAll('.draggable');
+
+// Drag start event listener
+boatIcons.forEach(icon => {
+  icon.addEventListener('dragstart', function(event) {
+    event.dataTransfer.setData('text/plain', this.id); // Set data to be dragged
+  });
+});
+
+const gameTable = document.getElementById('gameTable');
+
+// Prevent default behavior for drop events
+gameTable.addEventListener('dragover', function(event) {
+  event.preventDefault();
+});
+
+gameTable.addEventListener('drop', function(event) {
+  event.preventDefault();
+  const boatId = event.dataTransfer.getData('text/plain'); // Get data being dropped
+  const boatIcon = document.getElementById(boatId);
+
+  if (event.target.tagName === 'TD') {
+    event.target.appendChild(boatIcon); // Append the boat icon to the dropped cell
+  }
+});
+
