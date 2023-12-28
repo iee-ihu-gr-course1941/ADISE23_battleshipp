@@ -10,6 +10,7 @@ header.navbar {
 body {
     margin: 0;
     padding: 0;
+    background-color: #ffffff;
   }
   
   .container {
@@ -201,9 +202,12 @@ body {
 }
 
 .table-wrapper {
-  width: 45%; /* Adjust the width as needed */
+  display: inline-block;
+  width: 35%; /* Adjust the width as needed */
   margin-bottom: 20px; /* Adjust the margin as needed */
 }
+
+
 
 .caption {
   font-size: large;
@@ -213,7 +217,7 @@ body {
   border-collapse: collapse; /* Collapse table borders */
   width: 750px; /* Fixed width for the table */
   height: 750px; /* Fixed height for the table */
-  margin-bottom: 0px; /* Add margin from the top */
+  margin-bottom: 50px; /* Add margin from the top */
 }
 
 /* Style for table header cells */

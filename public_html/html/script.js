@@ -34,18 +34,7 @@ startButton.addEventListener('click', function() {
 });
 
 
-// ReadyButton click event
-const readyButton = document.getElementById('ReadyButton');
-readyButton.addEventListener('click', function() {
-  const selectedTeam = document.getElementById('gameOptions').value;
-  if (selectedTeam === 'option1') {
-    readyButton.classList.add('red-team-background'); // Add a class for Red Team background
-    readyButton.classList.remove('blue-team-background'); // Remove the Blue Team background class if present
-  } else if (selectedTeam === 'option2') {
-    readyButton.classList.add('blue-team-background'); // Add a class for Blue Team background
-    readyButton.classList.remove('red-team-background'); // Remove the Red Team background class if present
-  }
-});
+
 
 
 // Function to display the modal for the BATTLE SCORE
@@ -97,7 +86,18 @@ window.addEventListener('load', function() {
   playerNameInput.value = ''; // Clear input on page load
 });
 
-
+// ReadyButton click event
+const readyButton = document.getElementById('ReadyButton');
+readyButton.addEventListener('click', function() {
+  const selectedTeam = document.getElementById('gameOptions').value;
+  if (selectedTeam === 'option1') {
+    readyButton.classList.add('red-team-background'); // Add a class for Red Team background
+    readyButton.classList.remove('blue-team-background'); // Remove the Blue Team background class if present
+  } else if (selectedTeam === 'option2') {
+    readyButton.classList.add('blue-team-background'); // Add a class for Blue Team background
+    readyButton.classList.remove('red-team-background'); // Remove the Red Team background class if present
+  }
+});
 
 // DRAG AND DROP 
 
