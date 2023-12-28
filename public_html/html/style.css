@@ -11,8 +11,20 @@ body {
     margin: 0;
     padding: 0;
     background-color: #ffffff;
+    background-image: url('C:\Users\spyros\Desktop\boat.jpg'); /* Replace 'path_to_your_image.jpg' with the path to your image */
+    background-size: cover; /* Ensures the image covers the entire background */
+    background-repeat: no-repeat; /* Prevents the image from repeating */
   }
   
+  /* Style for the blue background on <h1> */
+.header {
+  background-color: lightblue;
+  color: white; /* Set text color to white for better visibility */
+  padding: 10px 0; /* Add padding to space the content */
+  text-align: center; /* Center-align the text */
+}
+
+
   .container {
     text-align: center;
     width: 80%; /* Adjust the width as needed */
@@ -25,6 +37,8 @@ body {
     align-items: center;
     margin-right: auto; /* Pushes it to the left */
     margin-top: 10px;
+    background-color: #424242;
+    padding: 20px;
   }
   
   h1 {
@@ -255,6 +269,13 @@ body {
   font-size: 30px;
 }
 
+#gameTable1 {
+  background-color: lightblue; /* Background color for the first table */
+}
+
+#gameTable2 {
+  background-color: lightblue; /* Background color for the second table */
+}
 
 
 /* Style for boat icons */
