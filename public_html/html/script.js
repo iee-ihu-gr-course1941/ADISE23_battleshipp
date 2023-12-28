@@ -75,6 +75,7 @@ document.getElementById('loginButton').addEventListener('click', function() {
 
 
 // Function to change table caption
+
 function changeTableCaption() {
   const playerNameInput = document.getElementById('playerName');
   const tableCaption = document.getElementById('tableCaption');
@@ -102,31 +103,34 @@ window.addEventListener('load', function() {
 
 
 
-const boatIcons = document.querySelectorAll('.draggable');
+function handleBoatPlacement(tableId) {
+  const table = document.getElementById(tableId);
 
-// Drag start event listener
-boatIcons.forEach(icon => {
-  icon.addEventListener('dragstart', function(event) {
-    event.dataTransfer.setData('text/plain', this.id); // Set data to be dragged
+  // Prevent default behavior for drop events on the entire document
+  document.addEventListener('dragover', function(event) {
+    event.preventDefault();
   });
-});
 
-const gameTable = document.getElementById('gameTable');
+  document.addEventListener('drop', function(event) {
+    event.preventDefault();
+    const boatId = event.dataTransfer.getData('text/plain');
+    const boatIcon = document.getElementById(boatId);
 
-// Prevent default behavior for drop events
-gameTable.addEventListener('dragover', function(event) {
-  event.preventDefault();
-});
+    if (event.target.tagName === 'TD' && event.currentTarget === table) {
+      event.target.appendChild(boatIcon);
+    }
+  });
+}
 
-gameTable.addEventListener('drop', function(event) {
-  event.preventDefault();
-  const boatId = event.dataTransfer.getData('text/plain'); // Get data being dropped
-  const boatIcon = document.getElementById(boatId);
+// Call the function for both tables
+handleBoatPlacement('gameTable1');
+handleBoatPlacement('gameTable2');
 
-  if (event.target.tagName === 'TD') {
-    event.target.appendChild(boatIcon); // Append the boat icon to the dropped cell
-  }
-});
+
+
+
+
+//login
 
 
 document.getElementById('loginButton').addEventListener('click', function() {

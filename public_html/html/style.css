@@ -23,6 +23,7 @@ body {
     display: flex;
     align-items: center;
     margin-right: auto; /* Pushes it to the left */
+    margin-top: 10px;
   }
   
   h1 {
@@ -193,19 +194,30 @@ body {
 
 /* Style for the Battleship table */
 
+.tables-container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.table-wrapper {
+  width: 45%; /* Adjust the width as needed */
+  margin-bottom: 20px; /* Adjust the margin as needed */
+}
+
 .caption {
   font-size: large;
 }
 
-.battleship-table-player1 {
+.battleship-table {
   border-collapse: collapse; /* Collapse table borders */
   width: 750px; /* Fixed width for the table */
   height: 750px; /* Fixed height for the table */
-  margin-bottom: 30px; /* Add margin from the top */
+  margin-bottom: 0px; /* Add margin from the top */
 }
 
 /* Style for table header cells */
-.battleship-table-player1 th {
+.battleship-table th {
   width: 50px; /* Fixed width for table header cells */
   height: 50px; /* Fixed height for table header cells */
   border: 1px solid #000; /* Add borders to table header cells */
@@ -215,7 +227,7 @@ body {
 }
 
 /* Style for table data cells */
-.battleship-table-player1 td {
+.battleship-table td {
   width: 50px; /* Fixed width for table data cells */
   height: 50px; /* Fixed height for table data cells */
   border: 1px solid #000; /* Add borders to table data cells */
@@ -225,7 +237,7 @@ body {
 }
 
 /* Style to display cell content on hover */
-.battleship-table-player1 td:hover {
+.battleship-table td:hover {
   background-color: rgb(216, 216, 216); /* Change background color on hover */
   position: relative;
   border: 1px solid black;
@@ -233,7 +245,7 @@ body {
 
 
 /* Style for the table caption (Player1) */
-.battleship-table-player1 caption {
+.battleship-table caption {
   margin-bottom: 10px; /* Add margin from the bottom of the caption */
   font-weight: bold; /* Make the caption bold (example) */
   font-size: 30px;
