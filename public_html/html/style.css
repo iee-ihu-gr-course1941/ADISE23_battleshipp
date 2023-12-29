@@ -11,7 +11,7 @@ body {
     margin: 0;
     padding: 0;
     background-color: #ffffff;
-    background-image: url('C:\Users\spyros\Desktop\boat.jpg'); /* Replace 'path_to_your_image.jpg' with the path to your image */
+    background-image: url(''); /* Replace 'path_to_your_image.jpg' with the path to your image */
     background-size: cover; /* Ensures the image covers the entire background */
     background-repeat: no-repeat; /* Prevents the image from repeating */
   }

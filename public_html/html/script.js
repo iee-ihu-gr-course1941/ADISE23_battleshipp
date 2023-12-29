@@ -63,22 +63,7 @@ document.getElementById('loginButton').addEventListener('click', function() {
 
 
 
-// Function to change table caption
 
-function changeTableCaption() {
-  const playerNameInput = document.getElementById('playerName');
-  const tableCaption = document.getElementById('tableCaption');
-  const playerName = playerNameInput.value.trim(); // Get and trim the entered name
-
-  if (playerName !== '') {
-    tableCaption.textContent = playerName; // Set the table caption to the entered name
-  }
-}
-
-// ReadyButton click event
-document.getElementById('ReadyButton').addEventListener('click', function() {
-  changeTableCaption(); // Change table caption on button click
-});
 
 // Event listener for page load
 window.addEventListener('load', function() {
@@ -86,17 +71,70 @@ window.addEventListener('load', function() {
   playerNameInput.value = ''; // Clear input on page load
 });
 
-// ReadyButton click event
-const readyButton = document.getElementById('ReadyButton');
-readyButton.addEventListener('click', function() {
-  const selectedTeam = document.getElementById('gameOptions').value;
+// ReadyButton1 click event
+const readyButton1 = document.getElementById('ReadyButton1');
+readyButton1.addEventListener('click', function() {
+  const selectedTeam = document.getElementById('gameOptions1').value;
   if (selectedTeam === 'option1') {
-    readyButton.classList.add('red-team-background'); // Add a class for Red Team background
-    readyButton.classList.remove('blue-team-background'); // Remove the Blue Team background class if present
+    readyButton1.classList.add('red-team-background'); // Add a class for Red Team background
+    readyButton1.classList.remove('blue-team-background'); // Remove the Blue Team background class if present
   } else if (selectedTeam === 'option2') {
-    readyButton.classList.add('blue-team-background'); // Add a class for Blue Team background
-    readyButton.classList.remove('red-team-background'); // Remove the Red Team background class if present
+    readyButton1.classList.add('blue-team-background'); // Add a class for Blue Team background
+    readyButton1.classList.remove('red-team-background'); // Remove the Red Team background class if present
   }
+});
+
+// ReadyButton2 click event
+const ReadyButton2 = document.getElementById('ReadyButton2');
+ReadyButton2.addEventListener('click', function() {
+  const selectedTeam = document.getElementById('gameOptions2').value;
+  if (selectedTeam === 'option1') {
+    ReadyButton2.classList.add('red-team-background'); // Add a class for Red Team background
+    ReadyButton2.classList.remove('blue-team-background'); // Remove the Blue Team background class if present
+  } else if (selectedTeam === 'option2') {
+    ReadyButton2.classList.add('blue-team-background'); // Add a class for Blue Team background
+    ReadyButton2.classList.remove('red-team-background'); // Remove the Red Team background class if present
+  }
+});
+
+// Function to change table caption
+
+function changeTableCaption1() {
+  const playerNameInput = document.getElementById('playerName1');
+  const tableCaption1 = document.getElementById('tableCaption1');
+  const playerName1 = playerNameInput.value.trim(); // Get and trim the entered name
+
+  if (playerName1 !== '') {
+    tableCaption1.textContent = playerName1; // Set the table caption to the entered name
+  }
+}
+
+function changeTableCaption2() {
+  const playerNameInput = document.getElementById('playerName2');
+  const tableCaption2 = document.getElementById('tableCaption2');
+  const playerName2 = playerNameInput.value.trim(); // Get and trim the entered name
+
+  if (playerName2 !== '') {
+    tableCaption2.textContent = playerName2; // Set the table caption to the entered name
+  }
+}
+
+// ReadyButton click events for changing table captions
+document.getElementById('ReadyButton1').addEventListener('click', function() {
+  changeTableCaption1(); // Change table caption for Player 1
+});
+
+document.getElementById('ReadyButton2').addEventListener('click', function() {
+  changeTableCaption2(); // Change table caption for Player 2
+});
+
+// Event listener for page load for both tables
+window.addEventListener('load', function() {
+  const playerNameInput1 = document.getElementById('playerName1');
+  playerNameInput1.value = ''; // Clear input on page load for Player 1
+
+  const playerNameInput2 = document.getElementById('playerName2');
+  playerNameInput2.value = ''; // Clear input on page load for Player 2
 });
 
 // DRAG AND DROP 
