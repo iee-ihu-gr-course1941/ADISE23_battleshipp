@@ -140,7 +140,6 @@ window.addEventListener('load', function() {
 // DRAG AND DROP 
 
 
-
 function handleBoatPlacement(tableId) {
   const table = document.getElementById(tableId);
 
@@ -149,13 +148,28 @@ function handleBoatPlacement(tableId) {
     event.preventDefault();
   });
 
-  document.addEventListener('drop', function(event) {
+  table.addEventListener('drop', function(event) {
     event.preventDefault();
-    const boatId = event.dataTransfer.getData('text/plain');
+    const boatId = event.dataTransfer.getData('text');
     const boatIcon = document.getElementById(boatId);
 
-    if (event.target.tagName === 'TD' && event.currentTarget === table) {
-      event.target.appendChild(boatIcon);
+    // Check if the boat is being dropped in the second table
+    if (tableId === 'gameTable2' && (boatId === 'boat1' || boatId === 'boat2' || boatId === 'boat3' || boatId === 'boat4' || boatId === 'boat5')) {
+      // Do not allow boats from table1 to be dropped in table2
+      return;
+    }
+
+    // Check if the boat is being dropped in the second table
+    if (tableId === 'gameTable1' && (boatId === 'boat6' || boatId === 'boat7' || boatId === 'boat8' || boatId === 'boat9' || boatId === 'boat10')) {
+      // Do not allow boats from table1 to be dropped in table2
+      return;
+    }
+
+    if (event.target.tagName === 'TD') {
+      event.target.appendChild(boatIcon.cloneNode(true));
+
+      //Remove the boat 
+      boatIcon.remove();
     }
   });
 }
@@ -163,6 +177,13 @@ function handleBoatPlacement(tableId) {
 // Call the function for both tables
 handleBoatPlacement('gameTable1');
 handleBoatPlacement('gameTable2');
+
+// Function to make the boat icons draggable
+document.querySelectorAll('.draggable').forEach((icon) => {
+  icon.addEventListener('dragstart', function(event) {
+    event.dataTransfer.setData('text', event.target.id);
+  });
+});
 
 
 

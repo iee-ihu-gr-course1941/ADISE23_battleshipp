@@ -32,7 +32,7 @@ body {
     padding-top: 30px; /* Add padding to the top of the content to prevent overlap with the fixed header */
   }
 
-  .user-inputs {
+  .user-inputs1 , .user-inputs2 {
     display: flex;
     align-items: center;
     margin-right: auto; /* Pushes it to the left */
