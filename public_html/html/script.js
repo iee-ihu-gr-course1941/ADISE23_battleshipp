@@ -1,22 +1,22 @@
 // Add functionality for volume icon (mute/unmute)
 const volumeIcon = document.getElementById('volumeIcon');
 let isMuted = false;
+let audio = new Audio('C:\Users\spyro\Downloads\adise_sound.mp3'); // Replace 'path_to_your_audio_file.mp3' with the actual path to your audio file
 
 volumeIcon.addEventListener('click', () => {
   if (isMuted) {
     volumeIcon.classList.remove('fa-volume-mute');
     volumeIcon.classList.add('fa-volume-up');
     isMuted = false;
-    // Unmute functionality here
-    // Example: UnmuteAudio();
+    audio.pause(); // Pause audio when muted
   } else {
     volumeIcon.classList.remove('fa-volume-up');
     volumeIcon.classList.add('fa-volume-mute');
     isMuted = true;
-    // Mute functionality here
-    // Example: MuteAudio();
+    audio.play(); // Play audio when unmuted
   }
 });
+
 
 
 // Select the start button

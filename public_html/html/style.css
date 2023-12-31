@@ -60,9 +60,34 @@ body {
     margin-bottom: 2px;
   }
 
-  .ready-button {
+/* Style for the button wrapper */
+.button-wrapper {
+  text-align: center; /* Center the button */
+  margin-top: 400px; /* Adjust the margin from the top */
+}
+
+/* Style for the icon inside the button */
+.rotate-button i {
+  color: black; /* Icon color */
+  font-size: 34px; /* Adjust icon size */
+}
+
+    /* Style for the rotate button */
+    .rotate-button {
+      width: 80px; /* Adjust width */
+      height: 80px; /* Adjust height */
+      background-color: #ccc; /* Button background color */
+      border: none;
+      cursor: pointer;
+      margin: 10px; /* Adjust margin */
+    }
+
+
+ 
+
+    .ready-button {
     background-color: #ccc;
-  }
+    }
 
   .red-team-background {
     background-color: red !important;
@@ -166,7 +191,11 @@ body {
 
 
 
+
+
 /* Popup modal styles */
+
+
 
 
 
@@ -207,7 +236,15 @@ body {
 
 
 
+
+
+
 /* Style for the Battleship table */
+
+
+
+
+
 
 .tables-container {
   display: flex;
@@ -277,7 +314,10 @@ body {
   background-color: lightblue; /* Background color for the second table */
 }
 
-
+/* Add a blur effect to the second table */
+.blur-table {
+  filter: blur(3px); /* Adjust the blur intensity */
+}
 /* Style for boat icons */
 
 
@@ -305,12 +345,15 @@ body {
 
 .large {
   font-size: 40px;
+  transform: scaleX(2);
 }
 
 .extra-large {
   font-size: 40px;
+  transform: scaleX(2);
 }
 
 .mega {
   font-size: 40px;
 }
+
