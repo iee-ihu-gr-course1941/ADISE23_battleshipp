@@ -265,6 +265,7 @@ body {
 }
 
 .battleship-table {
+  table-layout: fixed;
   border-collapse: collapse; /* Collapse table borders */
   width: 750px; /* Fixed width for the table */
   height: 750px; /* Fixed height for the table */
@@ -345,12 +346,10 @@ body {
 
 .large {
   font-size: 40px;
-  transform: scaleX(2);
 }
 
 .extra-large {
   font-size: 40px;
-  transform: scaleX(2);
 }
 
 .mega {
