@@ -153,30 +153,41 @@ function handleBoatPlacement(tableId) {
     const boatId = event.dataTransfer.getData('text');
     const boatIcon = document.getElementById(boatId);
 
+    // Get the cell ID where the boat is dropped
+    const cellId = event.target.id;
+
+
     // Check if the boat is being dropped in the second table
-    if (tableId === 'gameTable2' && (boatId === 'boat1' || boatId === 'boat2' || boatId === 'boat3' || boatId === 'boat4' || boatId === 'boat5')) {
+    //if (tableId === 'gameTable2' && (boatId === 'boat6' || boatId === 'boat7' || boatId === 'boat8' || boatId === 'boat9' || boatId === 'boat10')) {
       // Do not allow boats from table1 to be dropped in table2
+    //  return;
+    //}
+
+    // Check if the boat is being dropped in the first table
+    if (tableId === 'gameTable1' && (boatId === 'boat1' || boatId === 'boat2' || boatId === 'boat3' || boatId === 'boat4' || boatId === 'boat5')) {
+      // Do not allow boats from table1 to be dropped in table1
       return;
     }
 
-    // Check if the boat is being dropped in the second table
-    if (tableId === 'gameTable1' && (boatId === 'boat6' || boatId === 'boat7' || boatId === 'boat8' || boatId === 'boat9' || boatId === 'boat10')) {
-      // Do not allow boats from table1 to be dropped in table2
-      return;
-    }
-
-    if (event.target.tagName === 'TD') {
+      if (event.target.tagName === 'TD') {
+      // Append the boat to the TD
       event.target.appendChild(boatIcon.cloneNode(true));
 
-      //Remove the boat 
+      // Store the boat's location in the boatLocations object
+      boatLocations[boatId] = cellId;
+
+      // Remove the boat from the boat-icons list after it's placed on the table
       boatIcon.remove();
+
+      // You can use boatLocations[boatId] to retrieve the location of the boat
+      console.log(`Boat ${boatId} is placed at ${boatLocations[boatId]}`);
     }
   });
 }
 
 // Call the function for both tables
 handleBoatPlacement('gameTable1');
-handleBoatPlacement('gameTable2');
+//handleBoatPlacement('gameTable2');
 
 // Function to make the boat icons draggable
 document.querySelectorAll('.draggable').forEach((icon) => {
