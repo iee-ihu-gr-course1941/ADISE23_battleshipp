@@ -97,7 +97,15 @@ ReadyButton2.addEventListener('click', function() {
   }
 });
 
+
+
+
+
 // Function to change table caption
+
+
+
+
 
 function changeTableCaption1() {
   const playerNameInput = document.getElementById('playerName1');
@@ -109,24 +117,24 @@ function changeTableCaption1() {
   }
 }
 
-function changeTableCaption2() {
-  const playerNameInput = document.getElementById('playerName2');
-  const tableCaption2 = document.getElementById('tableCaption2');
-  const playerName2 = playerNameInput.value.trim(); // Get and trim the entered name
-
-  if (playerName2 !== '') {
-    tableCaption2.textContent = playerName2; // Set the table caption to the entered name
-  }
-}
+//function changeTableCaption2() {
+//  const playerNameInput = document.getElementById('playerName2');
+//  const tableCaption2 = document.getElementById('tableCaption2');
+//  const playerName2 = playerNameInput.value.trim(); // Get and trim the entered name
+//
+//  if (playerName2 !== '') {
+//    tableCaption2.textContent = playerName2; // Set the table caption to the entered name
+// }
+//}
 
 // ReadyButton click events for changing table captions
 document.getElementById('ReadyButton1').addEventListener('click', function() {
   changeTableCaption1(); // Change table caption for Player 1
 });
 
-document.getElementById('ReadyButton2').addEventListener('click', function() {
-  changeTableCaption2(); // Change table caption for Player 2
-});
+//document.getElementById('ReadyButton2').addEventListener('click', function() {
+//  changeTableCaption2(); // Change table caption for Player 2
+//});
 
 // Event listener for page load for both tables
 window.addEventListener('load', function() {
@@ -137,14 +145,16 @@ window.addEventListener('load', function() {
   playerNameInput2.value = ''; // Clear input on page load for Player 2
 });
 
-// DRAG AND DROP 
 
 
+
+
+// DRAG AND DROP
 function handleBoatPlacement(tableId) {
   const table = document.getElementById(tableId);
 
-  // Prevent default behavior for drop events on the entire document
-  document.addEventListener('dragover', function(event) {
+  // Prevent default behavior for drop events on the specific table
+  table.addEventListener('dragover', function(event) {
     event.preventDefault();
   });
 
@@ -156,20 +166,7 @@ function handleBoatPlacement(tableId) {
     // Get the cell ID where the boat is dropped
     const cellId = event.target.id;
 
-
-    // Check if the boat is being dropped in the second table
-    //if (tableId === 'gameTable2' && (boatId === 'boat6' || boatId === 'boat7' || boatId === 'boat8' || boatId === 'boat9' || boatId === 'boat10')) {
-      // Do not allow boats from table1 to be dropped in table2
-    //  return;
-    //}
-
-    // Check if the boat is being dropped in the first table
-    if (tableId === 'gameTable1' && (boatId === 'boat1' || boatId === 'boat2' || boatId === 'boat3' || boatId === 'boat4' || boatId === 'boat5')) {
-      // Do not allow boats from table1 to be dropped in table1
-      return;
-    }
-
-      if (event.target.tagName === 'TD') {
+    if (event.target.tagName === 'TD') {
       // Append the boat to the TD
       event.target.appendChild(boatIcon.cloneNode(true));
 
@@ -187,7 +184,7 @@ function handleBoatPlacement(tableId) {
 
 // Call the function for both tables
 handleBoatPlacement('gameTable1');
-//handleBoatPlacement('gameTable2');
+handleBoatPlacement('gameTable2');
 
 // Function to make the boat icons draggable
 document.querySelectorAll('.draggable').forEach((icon) => {
