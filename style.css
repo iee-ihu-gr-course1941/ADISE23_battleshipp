@@ -1,0 +1,358 @@
+/*
+header.navbar {
+    background-color: navy;
+    height: 50px; 
+    width: 100%;
+  }
+
+*/
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff;
+    background-image: url(''); /* Replace 'path_to_your_image.jpg' with the path to your image */
+    background-size: cover; /* Ensures the image covers the entire background */
+    background-repeat: no-repeat; /* Prevents the image from repeating */
+  }
+  
+  /* Style for the blue background on <h1> */
+.header {
+  background-color: lightblue;
+  color: white; /* Set text color to white for better visibility */
+  padding: 10px 0; /* Add padding to space the content */
+  text-align: center; /* Center-align the text */
+}
+
+
+  .container {
+    text-align: center;
+    width: 80%; /* Adjust the width as needed */
+    margin: 0 auto; /* Center the content */
+    padding-top: 30px; /* Add padding to the top of the content to prevent overlap with the fixed header */
+  }
+
+  .user-inputs1 , .user-inputs2 {
+    display: flex;
+    align-items: center;
+    margin-right: auto; /* Pushes it to the left */
+    margin-top: 10px;
+    background-color: #424242;
+    padding: 20px;
+  }
+  
+  h1 {
+    font-size: 55px;
+    margin-top: 0px;
+    margin-bottom: 80px; /* Adjust the distance between the items */
+    
+  }
+  
+  button {
+    padding: 10px 20px;
+    font-size: 1.2em;
+    border: none;
+    cursor: pointer;
+    background-color: rgb(115, 108, 209);
+    color: white;
+    border-radius: 5px;
+    transition: background-color 0.2s ease;
+    margin-bottom: 2px;
+  }
+
+/* Style for the button wrapper */
+.button-wrapper {
+  text-align: center; /* Center the button */
+  margin-top: 400px; /* Adjust the margin from the top */
+}
+
+/* Style for the icon inside the button */
+.rotate-button i {
+  color: black; /* Icon color */
+  font-size: 34px; /* Adjust icon size */
+}
+
+    /* Style for the rotate button */
+    .rotate-button {
+      width: 80px; /* Adjust width */
+      height: 80px; /* Adjust height */
+      background-color: #ccc; /* Button background color */
+      border: none;
+      cursor: pointer;
+      margin: 10px; /* Adjust margin */
+    }
+
+
+ 
+
+    .ready-button {
+    background-color: #ccc;
+    }
+
+  .red-team-background {
+    background-color: red !important;
+  }
+  
+  .blue-team-background {
+    background-color: blue !important;
+  }
+
+  /* Remove the hover effect */
+ 
+
+ 
+
+  .volume {
+    margin-top: 30px;
+    margin-bottom: 300px; /* Adjust the distance between the items */
+    font-size: 24px;    
+}
+  
+  .fa-volume-up,
+  .fa-volume-off {
+    font-size: 24px;
+  }
+  
+  /* Style for muted icon */
+  .fa-volume-off {
+    color: red; /* Initial color when muted */
+  }
+  
+
+
+/* Styling for text input */
+
+
+
+
+.text-input, .dropdown-select {
+    padding: 10px 20px; /* Increase padding to make the input larger */
+    width: 250px; /* Increase width to make the input wider */
+    margin-right: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 16px; /* Increase font size for larger text */
+}
+
+
+
+
+/* Styling for dropdown */
+
+
+
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+
+.dropdown-select:hover {
+  background-color: #f9f9f9; /* Change background color on hover */
+}
+
+/* Styling for dropdown animation */
+.dropdown-select:focus {
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+/* Add a down arrow icon */
+.dropdown-select::after {
+  content: '\25BC';
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+/* For the Drop-down list color */
+
+.team {
+  color: white;
+  padding: 10px 20px; /* Adjusted padding for dropdown options */
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.red-team:hover {
+  background-color: red;
+  color: white;
+}
+
+.blue-team:hover {
+  background-color: blue;
+  color: white;
+}
+
+
+
+
+
+/* Popup modal styles */
+
+
+
+
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.5); /* Semi-transparent background */
+}
+
+.modal-content {
+  background-color: #fff;
+  margin: 20% auto;
+  padding: 20px;
+  border-radius: 5px;
+  width: 60%;
+  text-align: center;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+
+
+
+
+
+/* Style for the Battleship table */
+
+
+
+
+
+
+.tables-container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.table-wrapper {
+  display: inline-block;
+  width: 35%; /* Adjust the width as needed */
+  margin-bottom: 20px; /* Adjust the margin as needed */
+}
+
+
+
+.caption {
+  font-size: large;
+}
+
+.battleship-table {
+  table-layout: fixed;
+  border-collapse: collapse; /* Collapse table borders */
+  width: 750px; /* Fixed width for the table */
+  height: 750px; /* Fixed height for the table */
+  margin-bottom: 50px; /* Add margin from the top */
+}
+
+/* Style for table header cells */
+.battleship-table th {
+  width: 50px; /* Fixed width for table header cells */
+  height: 50px; /* Fixed height for table header cells */
+  border: 1px solid #000; /* Add borders to table header cells */
+  padding: 8px;
+  text-align: center;
+  cursor: pointer; /* Change cursor to pointer on hover */
+}
+
+/* Style for table data cells */
+.battleship-table td {
+  width: 50px; /* Fixed width for table data cells */
+  height: 50px; /* Fixed height for table data cells */
+  border: 1px solid #000; /* Add borders to table data cells */
+  padding: 8px;
+  text-align: center;
+  cursor: pointer; /* Change cursor to pointer on hover */
+}
+
+/* Style to display cell content on hover */
+.battleship-table td:hover {
+  background-color: rgb(216, 216, 216); /* Change background color on hover */
+  position: relative;
+  border: 1px solid black;
+}
+
+
+/* Style for the table caption (Player1) */
+.battleship-table caption {
+  margin-bottom: 10px; /* Add margin from the bottom of the caption */
+  font-weight: bold; /* Make the caption bold (example) */
+  font-size: 30px;
+}
+
+#gameTable1 {
+  background-color: lightblue; /* Background color for the first table */
+}
+
+#gameTable2 {
+  background-color: lightblue; /* Background color for the second table */
+}
+
+/* Add a blur effect to the second table */
+.blur-table {
+  filter: blur(3px); /* Adjust the blur intensity */
+}
+/* Style for boat icons */
+
+
+
+.boat-icons {
+  display: flex;
+  align-items: center;
+ 
+  margin-bottom: 15px;
+}
+
+.boat-icon {
+  font-size: 40px;
+  color: navy;
+}
+
+/* Different boat icon sizes */
+.small {
+  font-size: 40px;
+}
+
+.medium {
+  font-size: 40px;
+}
+
+.large {
+  font-size: 40px;
+}
+
+.extra-large {
+  font-size: 40px;
+}
+
+.mega {
+  font-size: 40px;
+}
+
