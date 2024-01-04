@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Battleship Game</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  
+
+  <header class="navbar"></header>
+  
+  
+  <div class="container">
+    <h1 class="header">Battleship</h1>
+    <button id="loginButton">Log In</button>
+
+    <!-- Battleship game tables -->
+
+    <div class="tables-container">
+
+     <div class="table-wrapper">
+
+     <table class="battleship-table" id="gameTable1">
+
+      <caption id="tableCaption1">Player1</caption> <!-- Initial caption for the table -->
+
+      <thead>
+
+        <tr>
+          <th></th> <!-- Empty cell for spacing -->
+          <th>1</th> <!-- Column numbers -->
+          <th>2</th>
+          <th>3</th>
+          <th>4</th>
+          <th>5</th>
+          <th>6</th>
+          <th>7</th>
+          <th>8</th>
+          <th>9</th>
+          <th>10</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Rows -->
+        <tr>
+          <td>A</td> <!-- Row labels -->
+          <td id="A1"></td>
+          <td id="A2"></td>
+          <td id="A3"></td>
+          <td id="A4"></td>
+          <td id="A5"></td>
+          <td id="A6"></td>
+          <td id="A7"></td>
+          <td id="A8"></td>
+          <td id="A9"></td>
+          <td id="A10"></td> 
+        </tr>
+        <tr>
+          <td>B</td> <!-- Row labels -->
+          <td id="B1"></td>
+          <td id="B2"></td>
+          <td id="B3"></td>
+          <td id="B4"></td>
+          <td id="B5"></td>
+          <td id="B6"></td>
+          <td id="B7"></td>
+          <td id="B8"></td>
+          <td id="B9"></td>
+          <td id="B10"></td> 
+        </tr>
+        <tr>
+          <td>C</td> <!-- Row labels -->
+          <td id="C1"></td>
+          <td id="C2"></td>
+          <td id="C3"></td>
+          <td id="C4"></td>
+          <td id="C5"></td>
+          <td id="C6"></td>
+          <td id="C7"></td>
+          <td id="C8"></td>
+          <td id="C9"></td>
+          <td id="C10"></td>  
+        </tr>
+        <tr>
+          <td>D</td> <!-- Row labels -->
+          <td id="D1"></td>
+          <td id="D2"></td>
+          <td id="D3"></td>
+          <td id="D4"></td>
+          <td id="D5"></td>
+          <td id="D6"></td>
+          <td id="D7"></td>
+          <td id="D8"></td>
+          <td id="D9"></td>
+          <td id="D10"></td>  
+        </tr>
+        <tr>
+          <td>E</td> <!-- Row labels -->
+          <td id="E1"></td>
+          <td id="E2"></td>
+          <td id="E3"></td>
+          <td id="E4"></td>
+          <td id="E5"></td>
+          <td id="E6"></td>
+          <td id="E7"></td>
+          <td id="E8"></td>
+          <td id="E9"></td>
+          <td id="E10"></td> 
+        </tr>
+        <tr>
+          <td>F</td> <!-- Row labelsss -->
+          <td id="F1"></td>
+          <td id="F2"></td>
+          <td id="F3"></td>
+          <td id="F4"></td>
+          <td id="F5"></td>
+          <td id="F6"></td>
+          <td id="F7"></td>
+          <td id="F8"></td>
+          <td id="F9"></td>
+          <td id="F10"></td> 
+        </tr>
+        <tr>
+          <td>G</td> <!-- Row labels -->
+          <td id="G1"></td>
+          <td id="G2"></td>
+          <td id="G3"></td>
+          <td id="G4"></td>
+          <td id="G5"></td>
+          <td id="G6"></td>
+          <td id="G7"></td>
+          <td id="G8"></td>
+          <td id="G9"></td>
+          <td id="G10"></td>  
+        </tr>
+        <tr>
+          <td>H</td> <!-- Row labels -->
+          <td id="H1"></td>
+          <td id="H2"></td>
+          <td id="H3"></td>
+          <td id="H4"></td>
+          <td id="H5"></td>
+          <td id="H6"></td>
+          <td id="H7"></td>
+          <td id="H8"></td>
+          <td id="H9"></td>
+          <td id="H10"></td> 
+        </tr>
+        <tr>
+          <td>I</td> <!-- Row labels -->
+          <td id="I1"></td>
+          <td id="I2"></td>
+          <td id="I3"></td>
+          <td id="I4"></td>
+          <td id="I5"></td>
+          <td id="I6"></td>
+          <td id="I7"></td>
+          <td id="I8"></td>
+          <td id="I9"></td>
+          <td id="I10"></td>  
+        </tr>
+        <tr>
+          <td>J</td> <!-- Row labels -->
+          <td id="J1"></td>
+          <td id="J2"></td>
+          <td id="J3"></td>
+          <td id="J4"></td>
+          <td id="J5"></td>
+          <td id="J6"></td>
+          <td id="J7"></td>
+          <td id="J8"></td>
+          <td id="J9"></td>
+          <td id="J10"></td> 
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>Place your boats</h2>
+
+    <div class="boat-icons">
+      <i class="fas fa-ship boat-icon small draggable" draggable="true" id="boat1"></i>
+      <i class="fas fa-ship boat-icon medium draggable" draggable="true" id="boat2"></i>
+      <i class="fas fa-ship boat-icon large draggable" draggable="true" id="boat3"></i>
+      <i class="fas fa-ship boat-icon extra-large draggable" draggable="true" id="boat4"></i>
+      <i class="fas fa-ship boat-icon mega draggable" draggable="true" id="boat5"></i>
+      <!-- Add other boat icons -->
+    </div>
+
+    <div class="user-inputs1">
+      <input type="text" id="playerName1" placeholder="Enter your name [Player 1]" class="text-input">
+      <select id="gameOptions1" class="dropdown-select">
+        <option value="option1" class="red-team">Red Team</option>
+        <option value="option2" class="blue-team">Blue Team</option>
+      </select>
+      <button id="ReadyButton1" class="ready-button">Ready</button>
+    </div>
+    </div>
+
+    
+    <div class="button-wrapper">
+      <!-- Place this div between the two tables -->
+      <div class="rotate-container">
+        <button id="rotateButton" class="rotate-button">
+          <i class="fas fa-redo-alt"></i> <!-- Font Awesome icon for rotation -->
+        </button>
+      </div>
+      <!--       <div class="move-buttons">
+        <button class="move-up">
+          <i class="fas fa-arrow-up"></i>
+        </button>
+        <button class="move-down">
+          <i class="fas fa-arrow-down"></i>
+        </button>
+        <button class="move-left">
+          <i class="fas fa-arrow-left"></i>
+        </button>
+        <button class="move-right">
+          <i class="fas fa-arrow-right"></i>
+        </button>
+      </div>
+      -->
+
+      <button id="attackButton">Fire</button>
+    </div>
+    
+
+    
+
+    <div class="table-wrapper blur-table">
+
+    <table class="battleship-table" id="gameTable2">
+
+      <!-- 
+      <div class="boat-icons">
+        <i class="fas fa-ship boat-icon small draggable" draggable="true" id="boat6"></i>
+        <i class="fas fa-ship boat-icon medium draggable" draggable="true" id="boat7"></i>
+        <i class="fas fa-ship boat-icon large draggable" draggable="true" id="boat8"></i>
+        <i class="fas fa-ship boat-icon extra-large draggable" draggable="true" id="boat9"></i>
+        <i class="fas fa-ship boat-icon mega draggable" draggable="true" id="boat10"></i>
+      </div>
+      -->
+
+    <caption id="tableCaption2">Player2</caption> <!-- Initial caption for the table -->
+
+      <thead>
+        <tr>
+          <th></th> <!-- Empty cell for spacing -->
+          <th>1</th> <!-- Column numbers -->
+          <th>2</th>
+          <th>3</th>
+          <th>4</th>
+          <th>5</th>
+          <th>6</th>
+          <th>7</th>
+          <th>8</th>
+          <th>9</th>
+          <th>10</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Rows -->
+        <tr>
+          <td>A</td> <!-- Row labels -->
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td> 
+        </tr>
+        <tr>
+          <td>B</td> <!-- Row labels -->
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td> 
+        </tr>
+        <tr>
+          <td>C</td> <!-- Row labels -->
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td> 
+        </tr>
+        <tr>
+          <td>D</td> <!-- Row labels -->
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td> 
+        </tr>
+        <tr>
+          <td>E</td> <!-- Row labels -->
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td> 
+        </tr>
+        <tr>
+          <td>F</td> <!-- Row labels -->
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td> 
+        </tr>
+        <tr>
+          <td>G</td> <!-- Row labels -->
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td> 
+        </tr>
+        <tr>
+          <td>H</td> <!-- Row labels -->
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td> 
+        </tr>
+        <tr>
+          <td>I</td> <!-- Row labels -->
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td> 
+        </tr>
+        <tr>
+          <td>J</td> <!-- Row labels -->
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td> 
+        </tr>
+      </tbody>
+    </table>
+
+    
+
+    <!--
+    <div class="user-inputs2">
+      <input type="text" id="playerName2" placeholder="Enter your name [Player 2]" class="text-input">
+      <select id="gameOptions2" class="dropdown-select">
+        <option value="option1" class="red-team">Red Team</option>
+        <option value="option2" class="blue-team">Blue Team</option>
+      </select>
+      <button id="ReadyButton2" class="ready-button">Ready</button>
+    </div>
+     -->
+     
+    </div>
+    </div>
+
+    <button id="startButton">Start</button>
+    <button id="scoreButton">Battle Score</button>
+
+    
+  <!-- Popup modal -->
+  <div class="modal" id="popupModal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <h2>Battle Score</h2>
+      <!-- Add your popup content here -->
+    </div>
+  </div>
+
+    <div class="volume">
+      <i id="volumeIcon" class="fas fa-volume-up"></i>
+    </div>
+  </div>
+  
+
+
+  <script src="script.js"></script>
+</body>
+</html>
+
