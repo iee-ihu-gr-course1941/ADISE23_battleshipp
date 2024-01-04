@@ -117,24 +117,25 @@ function changeTableCaption1() {
   }
 }
 
-//function changeTableCaption2() {
-//  const playerNameInput = document.getElementById('playerName2');
-//  const tableCaption2 = document.getElementById('tableCaption2');
-//  const playerName2 = playerNameInput.value.trim(); // Get and trim the entered name
-//
-//  if (playerName2 !== '') {
-//    tableCaption2.textContent = playerName2; // Set the table caption to the entered name
-// }
-//}
+function changeTableCaption2() {
+ const playerNameInput = document.getElementById('playerName2');
+  const tableCaption2 = document.getElementById('tableCaption2');
+  const playerName2 = playerNameInput.value.trim(); // Get and trim the entered name
+
+  if (playerName2 !== '') {
+    tableCaption2.textContent = playerName2; // Set the table caption to the entered name
+ }
+}
+
 
 // ReadyButton click events for changing table captions
 document.getElementById('ReadyButton1').addEventListener('click', function() {
   changeTableCaption1(); // Change table caption for Player 1
 });
 
-//document.getElementById('ReadyButton2').addEventListener('click', function() {
-//  changeTableCaption2(); // Change table caption for Player 2
-//});
+document.getElementById('ReadyButton2').addEventListener('click', function() {
+  changeTableCaption2(); // Change table caption for Player 2
+});
 
 // Event listener for page load for both tables
 window.addEventListener('load', function() {
@@ -150,34 +151,32 @@ window.addEventListener('load', function() {
 
 
 // DRAG AND DROP
+
 function handleBoatPlacement(tableId) {
   const table = document.getElementById(tableId);
 
-  // Prevent default behavior for drop events on the specific table
-  table.addEventListener('dragover', function(event) {
+  // Prevent default behavior for drop events on the entire document
+  document.addEventListener('dragover', function(event) {
     event.preventDefault();
   });
 
-  table.addEventListener('drop', function(event) {
+  document.addEventListener('drop', function(event) {
     event.preventDefault();
     const boatId = event.dataTransfer.getData('text');
     const boatIcon = document.getElementById(boatId);
 
-    // Get the cell ID where the boat is dropped
-    const cellId = event.target.id;
+    // Check if the boat is being dropped in the second table
+    if (tableId === 'gameTable2' && (boatId === 'boat1' || boatId === 'boat2' || boatId === 'boat3' || boatId === 'boat4' || boatId === 'boat5')) {
+      // Do not allow boats from table1 to be dropped in table2
+      return;
+    }
 
     if (event.target.tagName === 'TD') {
-      // Append the boat to the TD
+      // Clone the boat icon and append it to the target table cell
       event.target.appendChild(boatIcon.cloneNode(true));
 
-      // Store the boat's location in the boatLocations object
-      boatLocations[boatId] = cellId;
-
-      // Remove the boat from the boat-icons list after it's placed on the table
+      // Remove the boat icon from the boat list
       boatIcon.remove();
-
-      // You can use boatLocations[boatId] to retrieve the location of the boat
-      console.log(`Boat ${boatId} is placed at ${boatLocations[boatId]}`);
     }
   });
 }
@@ -192,6 +191,7 @@ document.querySelectorAll('.draggable').forEach((icon) => {
     event.dataTransfer.setData('text', event.target.id);
   });
 });
+
 
 
 
