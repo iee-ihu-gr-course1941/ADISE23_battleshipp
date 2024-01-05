@@ -147,7 +147,36 @@ window.addEventListener('load', function() {
 });
 
 
+/*
+function duplicateIcon() {
+  // Find the existing icon element
+  var existingIcon = document.getElementById('boat1');
 
+  // Create a duplicate of the existing icon
+  var newIcon = existingIcon.cloneNode(true);
+
+  // Assign a new ID to the duplicated icon (boat7)
+  newIcon.id = 'boat2';
+
+  // Append the duplicated icon to the container
+  document.querySelector('.boat-icons').appendChild(newIcon);
+}
+*/
+
+
+// Function to handle boat icon placement
+function handleBoatPlacement(tableId) {
+  const table = document.getElementById(tableId);
+
+  // ... Existing logic for dropping boat icons into the table
+
+  // Handle boat icon click to make them draggable again
+  table.addEventListener('click', function(event) {
+    if (event.target.classList.contains('boat-icon')) {
+      event.target.classList.add('draggable');
+    }
+  });
+}
 
 
 // DRAG AND DROP
@@ -193,9 +222,23 @@ document.querySelectorAll('.draggable').forEach((icon) => {
 });
 
 
+// change the color when you choose (td) to attack - den douleuei****
 
 
+/*
+//Select the table
+const table = document.getElementById('gameTable1');
 
+//Add click event on td
+table.addEventListener('click', function(event) {
+  const clickedCell = event.target;
+
+  //check if the clicked element is a tabl cell(td)
+  if (clickedCell.tagName === 'TD') {
+    clickedCell.style.backgroundColor = 'red';
+  }
+}
+*/
 
 //login
 
