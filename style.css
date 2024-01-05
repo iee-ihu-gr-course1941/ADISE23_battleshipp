@@ -322,6 +322,10 @@ body {
 /* Style for boat icons */
 
 
+.draggable {
+  cursor: pointer; /* Set the cursor style to pointer */
+}
+
 
 .boat-icons {
   display: flex;
@@ -332,7 +336,17 @@ body {
 
 .boat-icon {
   font-size: 40px;
-  color: navy;
+  color: rgb(201, 4, 4);
+}
+
+/* Red team boat icons */
+.red-team .boat-icon {
+  color: red;
+}
+
+/* Blue team boat icons */
+.blue-team .boat-icon {
+  color: blue;
 }
 
 /* Different boat icon sizes */

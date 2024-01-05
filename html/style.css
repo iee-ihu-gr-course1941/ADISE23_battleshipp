@@ -1,26 +1,22 @@
-/*
-header.navbar {
-    background-color: navy;
-    height: 50px; 
-    width: 100%;
-  }
-
-*/
+marquee {
+  font-size: 24px; /* Change the font size to your preference */
+  background-color:  rgb(54, 46, 172);
+  color: #ffffff;
+}
 
 body {
     margin: 0;
     padding: 0;
     background-color: #ffffff;
-    background-image: url(''); /* Replace 'path_to_your_image.jpg' with the path to your image */
+    background-image: url('adise1.jpg'); /* Replace 'path_to_your_image.jpg' with the path to your image */
     background-size: cover; /* Ensures the image covers the entire background */
     background-repeat: no-repeat; /* Prevents the image from repeating */
   }
   
   /* Style for the blue background on <h1> */
 .header {
-  background-color: lightblue;
-  color: white; /* Set text color to white for better visibility */
-  padding: 10px 0; /* Add padding to space the content */
+  color: rgb(0, 0, 0); /* Set text color to white for better visibility */
+  paddingrgb(0, 0, 0)x 0; /* Add padding to space the content */
   text-align: center; /* Center-align the text */
 }
 
@@ -32,19 +28,30 @@ body {
     padding-top: 30px; /* Add padding to the top of the content to prevent overlap with the fixed header */
   }
 
-  .user-inputs1 , .user-inputs2 {
-    display: flex;
-    align-items: center;
-    margin-right: auto; /* Pushes it to the left */
-    margin-top: 10px;
-    background-color: #424242;
-    padding: 20px;
-  }
+/* CSS to set background color for the container */
+.user-inputs1, .user-inputs2 {
+  background-color:  rgb(54, 46, 172);
+  /* Additional styling */
+  padding: 10px;
+  border: 4px solid #000; /* Optional: Add border for visibility */
+}
+/* Additional styling for input, select, and button */
+.text-input {
+  border: 4px solid black;
+
+}
+.dropdown-select {
+  border: 4px solid black;
+
+}
+.ready-button {
+  border: 4px solid black;
+}
   
   h1 {
     font-size: 55px;
     margin-top: 0px;
-    margin-bottom: 80px; /* Adjust the distance between the items */
+    margin-bottom: 8px; /* Adjust the distance between the items */
     
   }
   
@@ -53,11 +60,14 @@ body {
     font-size: 1.2em;
     border: none;
     cursor: pointer;
-    background-color: rgb(115, 108, 209);
+    background-color: rgb(54, 46, 172);
     color: white;
     border-radius: 5px;
     transition: background-color 0.2s ease;
-    margin-bottom: 2px;
+    margin-top: 0px;
+    margin-bottom: 1px;
+    border: 4px solid black;
+
   }
 
 /* Style for the button wrapper */
@@ -68,15 +78,15 @@ body {
 
 /* Style for the icon inside the button */
 .rotate-button i {
-  color: black; /* Icon color */
-  font-size: 34px; /* Adjust icon size */
+  color: rgb(255, 255, 255); /* Icon color */
+  font-size: 40px; /* Adjust icon size */
 }
 
     /* Style for the rotate button */
     .rotate-button {
       width: 80px; /* Adjust width */
       height: 80px; /* Adjust height */
-      background-color: #ccc; /* Button background color */
+      background-color:  rgb(54, 46, 172); /* Button background color */
       border: none;
       cursor: pointer;
       margin: 10px; /* Adjust margin */
@@ -242,7 +252,12 @@ body {
 /* Style for the Battleship table */
 
 
-
+#tableCaption1 , #tableCaption2 {
+  background-color:  rgb(94, 215, 255);
+  /* Additional styling */
+  padding: 5px;
+  border: 1px solid #000; /* Optional: Add border for visibility */
+}
 
 
 
@@ -294,7 +309,7 @@ body {
 
 /* Style to display cell content on hover */
 .battleship-table td:hover {
-  background-color: rgb(216, 216, 216); /* Change background color on hover */
+  background-color: rgb(255, 0, 0); /* Change background color on hover */
   position: relative;
   border: 1px solid black;
 }
@@ -308,26 +323,31 @@ body {
 }
 
 #gameTable1 {
-  background-color: lightblue; /* Background color for the first table */
+  background-color: rgb(94, 215, 255); /* Background color for the first table */
 }
 
 #gameTable2 {
-  background-color: lightblue; /* Background color for the second table */
+  background-color:rgb(94, 215, 255); /* Background color for the second table */
 }
 
-/* Add a blur effect to the second table */
+/* Add a blur effect to the second table 
 .blur-table {
-  filter: blur(3px); /* Adjust the blur intensity */
-}
+  filter: blur(3px);  Adjust the blur intensity */
+
 /* Style for boat icons */
 
 
 
 .boat-icons {
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  align-items: flex-start;
  
   margin-bottom: 15px;
+}
+
+.boat-icons .boat-icon {
+  margin: 10px;
 }
 
 .boat-icon {
