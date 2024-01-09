@@ -1,17 +1,15 @@
 // Add functionality for volume icon (mute/unmute)
-const volumeIcon = document.getElementById('volumeIcon');
+let volumeIcon = $('#volumeIcon');
 let isMuted = false;
-let audio = new Audio('C:\Users\spyro\Downloads\adise_sound.mp3'); // Replace 'path_to_your_audio_file.mp3' with the actual path to your audio file
+let audio = new Audio('C:\\Users\\spyro\\Downloads\\adise_sound.mp3'); // Replace 'path_to_your_audio_file.mp3' with the actual path to your audio file
 
-volumeIcon.addEventListener('click', () => {
+volumeIcon.on('click', () => {
   if (isMuted) {
-    volumeIcon.classList.remove('fa-volume-mute');
-    volumeIcon.classList.add('fa-volume-up');
+    volumeIcon.removeClass('fa-volume-mute').addClass('fa-volume-up');
     isMuted = false;
     audio.pause(); // Pause audio when muted
   } else {
-    volumeIcon.classList.remove('fa-volume-up');
-    volumeIcon.classList.add('fa-volume-mute');
+    volumeIcon.removeClass('fa-volume-up').addClass('fa-volume-mute');
     isMuted = true;
     audio.play(); // Play audio when unmuted
   }
@@ -19,16 +17,15 @@ volumeIcon.addEventListener('click', () => {
 
 
 
-// Select the start button
-const startButton = document.getElementById('startButton');
 
-// Function to change button text on click
-startButton.addEventListener('click', function() {
-  if (this.textContent === 'Start') {
-    this.textContent = 'Pause'; // Change text to 'Pause' when 'Start' is clicked
+// Select the start button
+
+$('#startButton').on('click', function() {
+  if ($(this).text() === 'Start') {
+    $(this).text('Pause'); // Change text to 'Pause' when 'Start' is clicked
     // Add logic to handle pausing the game
   } else {
-    this.textContent = 'Start'; // Change text back to 'Start' when 'Pause' is clicked
+    $(this).text('Start'); // Change text back to 'Start' when 'Pause' is clicked
     // Add logic to handle resuming the game
   }
 });
@@ -37,95 +34,107 @@ startButton.addEventListener('click', function() {
 
 
 
-// Get the rules button and modal
-var rulesButton = document.getElementById('rulesButton');
-var rulesModal = document.getElementById('rulesModal');
 
-// When the rules button is clicked, display the rules modal
-rulesButton.onclick = function() {
-  rulesModal.style.display = 'block';
-}
+$(document).ready(function() {
+  // Get the rules button and modal
+  var rulesButton = $('#rulesButton');
+  var rulesModal = $('#rulesModal');
 
-// Close the rules modal when the 'x' is clicked
-var rulesCloseBtn = document.getElementsByClassName('close')[0];
-rulesCloseBtn.onclick = function() {
-  rulesModal.style.display = 'none';
-}
+  // When the rules button is clicked, display the rules modal
+  rulesButton.on('click', function() {
+    rulesModal.css('display', 'block');
+  });
 
-// Close the rules modal if user clicks outside the modal content
-window.onclick = function(event) {
-  if (event.target == rulesModal) {
-    rulesModal.style.display = 'none';
-  }
-}
+  // Close the rules modal when the 'x' is clicked
+  var rulesCloseBtn = $('.close').eq(0);
+  rulesCloseBtn.on('click', function() {
+    rulesModal.css('display', 'none');
+  });
 
-// Get the score button and modal
-var scoreButton = document.getElementById('scoreButton');
-var scoreModal = document.getElementById('scoreModal');
-
-// When the score button is clicked, display the score modal
-scoreButton.onclick = function() {
-  scoreModal.style.display = 'block';
-}
-
-// Close the score modal when the 'x' is clicked
-var scoreCloseBtn = document.getElementsByClassName('close')[1];
-scoreCloseBtn.onclick = function() {
-  scoreModal.style.display = 'none';
-}
-
-// Close the score modal if user clicks outside the modal content
-window.onclick = function(event) {
-  if (event.target == scoreModal) {
-    scoreModal.style.display = 'none';
-  }
-}
+  // Close the rules modal if user clicks outside the modal content
+  $(window).on('click', function(event) {
+    if (event.target === rulesModal[0]) {
+      rulesModal.css('display', 'none');
+    }
+  });
+});
 
 
+$(document).ready(function() {
+  // Get the score button and modal
+  var scoreButton = $('#scoreButton');
+  var scoreModal = $('#scoreModal');
 
+  // When the score button is clicked, display the score modal
+  scoreButton.on('click', function() {
+    scoreModal.css('display', 'block');
+  });
 
-// Log In button click event listener
+  // Close the score modal when the 'x' is clicked
+  var scoreCloseBtn = $('.close').eq(1);
+  scoreCloseBtn.on('click', function() {
+    scoreModal.css('display', 'none');
+  });
 
-document.getElementById('loginButton').addEventListener('click', function() {
-  // Open a pop-up window when Log In button is clicked
-  window.open('login.html', 'LoginWindow', 'width=400,height=400');
+  // Close the score modal if user clicks outside the modal content
+  $(window).on('click', function(event) {
+    if (event.target === scoreModal[0]) {
+      scoreModal.css('display', 'none');
+    }
+  });
 });
 
 
 
 
 
-// Event listener for page load
-window.addEventListener('load', function() {
-  const playerNameInput = document.getElementById('playerName');
-  playerNameInput.value = ''; // Clear input on page load
+$(document).ready(function() {
+  // Log In button click event listener
+  $('#loginButton').on('click', function() {
+    // Open a pop-up window when Log In button is clicked
+    window.open('login.html', 'LoginWindow', 'width=400,height=400');
+  });
+
+  // Event listener for page load
+  $(window).on('load', function() {
+    const playerNameInput = $('#playerName');
+    playerNameInput.val(''); // Clear input on page load
+  });
 });
+
+
 
 // ReadyButton1 click event
-const readyButton1 = document.getElementById('ReadyButton1');
-readyButton1.addEventListener('click', function() {
-  const selectedTeam = document.getElementById('gameOptions1').value;
-  if (selectedTeam === 'option1') {
-    readyButton1.classList.add('red-team-background'); // Add a class for Red Team background
-    readyButton1.classList.remove('blue-team-background'); // Remove the Blue Team background class if present
-  } else if (selectedTeam === 'option2') {
-    readyButton1.classList.add('blue-team-background'); // Add a class for Blue Team background
-    readyButton1.classList.remove('red-team-background'); // Remove the Red Team background class if present
-  }
+
+$(document).ready(function() {
+  $('#ReadyButton1').on('click', function() {
+    const selectedTeam = $('#gameOptions1').val();
+    const readyButton1 = $('#ReadyButton1');
+
+    if (selectedTeam === 'option1') {
+      readyButton1.addClass('red-team-background').removeClass('blue-team-background');
+    } else if (selectedTeam === 'option2') {
+      readyButton1.addClass('blue-team-background').removeClass('red-team-background');
+    }
+  });
 });
 
+
 // ReadyButton2 click event
-const ReadyButton2 = document.getElementById('ReadyButton2');
-ReadyButton2.addEventListener('click', function() {
-  const selectedTeam = document.getElementById('gameOptions2').value;
-  if (selectedTeam === 'option1') {
-    ReadyButton2.classList.add('red-team-background'); // Add a class for Red Team background
-    ReadyButton2.classList.remove('blue-team-background'); // Remove the Blue Team background class if present
-  } else if (selectedTeam === 'option2') {
-    ReadyButton2.classList.add('blue-team-background'); // Add a class for Blue Team background
-    ReadyButton2.classList.remove('red-team-background'); // Remove the Red Team background class if present
-  }
+
+$(document).ready(function() {
+  $('#ReadyButton2').on('click', function() {
+    const selectedTeam = $('#gameOptions2').val();
+    const readyButton2 = $('#ReadyButton2');
+
+    if (selectedTeam === 'option1') {
+      readyButton2.addClass('red-team-background').removeClass('blue-team-background');
+    } else if (selectedTeam === 'option2') {
+      readyButton2.addClass('blue-team-background').removeClass('red-team-background');
+    }
+  });
 });
+
 
 
 
@@ -134,47 +143,51 @@ ReadyButton2.addEventListener('click', function() {
 // Function to change table caption
 
 
+$(document).ready(function() {
+  function changeTableCaption1() {
+    const playerNameInput = $('#playerName1');
+    const tableCaption1 = $('#tableCaption1');
+    const playerName1 = playerNameInput.val().trim(); // Get and trim the entered name
 
-
-
-function changeTableCaption1() {
-  const playerNameInput = document.getElementById('playerName1');
-  const tableCaption1 = document.getElementById('tableCaption1');
-  const playerName1 = playerNameInput.value.trim(); // Get and trim the entered name
-
-  if (playerName1 !== '') {
-    tableCaption1.textContent = playerName1; // Set the table caption to the entered name
+    if (playerName1 !== '') {
+      tableCaption1.text(playerName1); // Set the table caption to the entered name
+    }
   }
-}
 
-function changeTableCaption2() {
- const playerNameInput = document.getElementById('playerName2');
-  const tableCaption2 = document.getElementById('tableCaption2');
-  const playerName2 = playerNameInput.value.trim(); // Get and trim the entered name
-
-  if (playerName2 !== '') {
-    tableCaption2.textContent = playerName2; // Set the table caption to the entered name
- }
-}
-
-
-// ReadyButton click events for changing table captions
-document.getElementById('ReadyButton1').addEventListener('click', function() {
-  changeTableCaption1(); // Change table caption for Player 1
+  // ReadyButton click events for changing table captions
+  $('#ReadyButton1').on('click', function() {
+    changeTableCaption1(); // Change table caption for Player 1
+  });
 });
 
-document.getElementById('ReadyButton2').addEventListener('click', function() {
-  changeTableCaption2(); // Change table caption for Player 2
+
+
+$(document).ready(function() {
+  function changeTableCaption2() {
+    const playerNameInput = $('#playerName2');
+    const tableCaption2 = $('#tableCaption2');
+    const playerName2 = playerNameInput.val().trim(); // Get and trim the entered name
+
+    if (playerName2 !== '') {
+      tableCaption2.text(playerName2); // Set the table caption to the entered name
+    }
+  }
+
+  $('#ReadyButton2').on('click', function() {
+    changeTableCaption2(); // Change table caption for Player 2
+  });
 });
+
+
+
 
 // Event listener for page load for both tables
-window.addEventListener('load', function() {
-  const playerNameInput1 = document.getElementById('playerName1');
-  playerNameInput1.value = ''; // Clear input on page load for Player 1
 
-  const playerNameInput2 = document.getElementById('playerName2');
-  playerNameInput2.value = ''; // Clear input on page load for Player 2
+$(document).ready(function() {
+  $('#playerName1').val(''); // Clear input on page load for Player 1
+  $('#playerName2').val(''); // Clear input on page load for Player 2
 });
+
 
 
 /*
@@ -194,35 +207,31 @@ function duplicateIcon() {
 */
 
 
-// Function to handle boat icon placement
 function handleBoatPlacement(tableId) {
-  const table = document.getElementById(tableId);
+  const table = $('#' + tableId);
 
   // ... Existing logic for dropping boat icons into the table
 
   // Handle boat icon click to make them draggable again
-  table.addEventListener('click', function(event) {
-    if (event.target.classList.contains('boat-icon')) {
-      event.target.classList.add('draggable');
-    }
+  table.on('click', '.boat-icon', function(event) {
+    $(this).addClass('draggable');
   });
 }
 
 
-// DRAG AND DROP
 
 function handleBoatPlacement(tableId) {
-  const table = document.getElementById(tableId);
+  const table = $('#' + tableId);
 
   // Prevent default behavior for drop events on the entire document
-  document.addEventListener('dragover', function(event) {
+  $(document).on('dragover', function(event) {
     event.preventDefault();
   });
 
-  document.addEventListener('drop', function(event) {
+  $(document).on('drop', function(event) {
     event.preventDefault();
-    const boatId = event.dataTransfer.getData('text');
-    const boatIcon = document.getElementById(boatId);
+    const boatId = event.originalEvent.dataTransfer.getData('text');
+    const boatIcon = $('#' + boatId);
 
     // Check if the boat is being dropped in the second table
     if (tableId === 'gameTable2' && (boatId === 'boat1' || boatId === 'boat2' || boatId === 'boat3' || boatId === 'boat4' || boatId === 'boat5')) {
@@ -232,7 +241,7 @@ function handleBoatPlacement(tableId) {
 
     if (event.target.tagName === 'TD') {
       // Clone the boat icon and append it to the target table cell
-      event.target.appendChild(boatIcon.cloneNode(true));
+      $(event.target).append(boatIcon.clone());
 
       // Remove the boat icon from the boat list
       boatIcon.remove();
@@ -245,10 +254,8 @@ handleBoatPlacement('gameTable1');
 handleBoatPlacement('gameTable2');
 
 // Function to make the boat icons draggable
-document.querySelectorAll('.draggable').forEach((icon) => {
-  icon.addEventListener('dragstart', function(event) {
-    event.dataTransfer.setData('text', event.target.id);
-  });
+$('.draggable').on('dragstart', function(event) {
+  event.originalEvent.dataTransfer.setData('text', event.target.id);
 });
 
 
@@ -272,8 +279,7 @@ table.addEventListener('click', function(event) {
 
 //login
 
-
-document.getElementById('loginButton').addEventListener('click', function() {
-  // Open a larger pop-up window when Log In button is clicked
+$('#loginButton').on('click', function() {
+  // Ανοίξτε ένα μεγαλύτερο παράθυρο όταν κάνετε κλικ στο κουμπί Σύνδεση
   window.open('login.html', 'LoginWindow', 'width=5020,height=400');
 });
