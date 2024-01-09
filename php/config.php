@@ -1,15 +1,24 @@
 <?php  
 
+    $host = 'localhost';
+    $db = 'battleshipgamedb';
+    require_once "db_upass.php";
 
-    $db_user = 'iee2019019';
-    $db_pass = '';
-    $db_name = 'battleships';
+    $user=$DB_USER;
+    $pass=$DB_PASS;
+        
 
-    $db = new PDO('mysql:host=127.0.0.1;dbname='.$db_name.'charset=utf8',$db_user,$db_password);
+    $user = $DB_USER;
+    $pass = $DB_PASS;
 
-    $db->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
-    $db->setAttribute(PDO::MYSQL_ATTR_USE_BUFFERED_QUERY, true);
-    $db-> setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    
-    define('APP_NAME','BATTLESHIPS')
+    if(gethostname()=='users.iee.ihu.gr') {
+        $mysqli = new mysqli($host, $user, $pass, $db, null, '/home/student/iee/2019/iee2019119/mysql/run/mysql.sock');
+    } else {
+        $pass = null;
+        $mysqli = new mysqli($host, $user, $pass, $db);
+    }
+
+    if ($mysqli->connect_errno) {
+        echo "Failed to connect to MySQL: (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
+    }
 ?>
