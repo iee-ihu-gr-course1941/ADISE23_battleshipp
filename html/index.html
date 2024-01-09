@@ -421,24 +421,41 @@
     </div>
 
     <button id="startButton">Start</button>
-    <button id="scoreButton">Battle Score</button>
 
-    
-  <!-- Popup modal -->
-  <div class="modal" id="popupModal">
-    <div class="modal-content">
-      <span class="close" onclick="closeModal()">&times;</span>
-      <h2>Battle Score</h2>
-      <!-- Add your popup content here -->
-    </div>
+    <!-- Rules Button -->
+<button id="rulesButton">Rules</button>
+
+<div id="rulesModal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h2>Rules</h2>
+    <h3>Αρχική στήση:</h3> Κάθε παίκτης τοποθετεί τα πλοία του σε ένα πλέγμα, το οποίο είναι ένας πίνακας 10x10. Τα πλοία μπορούν να τοποθετηθούν οριζόντια ή κάθετα και δεν μπορούν να ακουμπούν ή να επικαλύπτονται μεταξύ τους. 
+
+      <h3>Σειρά παιξίματος:</h3> Οι παίκτες εναλλάσσονται στο να πυροβολούν σε διάφορα κελιά του αντιπάλου τους για να ανακαλύψουν πού βρίσκονται τα πλοία του.
+  
+      <h3>Χτύπημα ή Αστοχία:</h3> Αν ένας παίκτης πυροβολήσει ένα κελί και υπάρχει πλοίο του αντιπάλου εκεί, τότε είναι χτύπημα. Ο παίκτης που πέτυχε ένα πλοίο έχει το δικαίωμα να συνεχίσει τη σειρά του και να πυροβολήσει ξανά. Αλλιώς, είναι αστοχία και την σειρά παίρνει ο άλλος παίκτης.
+  
+      <h3>Αναγγελία Ναυάγιου:</h3> Όταν ένα πλοίο βυθίζεται, ο παίκτης ανακοινώνει στον αντίπαλό του ποιο πλοίο βυθίστηκε.
+  
+      <h3>Νίκη:</h3> Ο στόχος είναι να βυθίσετε όλα τα πλοία του αντιπάλου σας πριν αυτός βυθίσει τα δικά σας.</p>
   </div>
+</div>
+
+<!-- Score Button -->
+<button id="scoreButton">Score</button>
+
+<div id="scoreModal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h2>Score</h2>
+    <p>Your score is...</p>
+  </div>
+</div>
 
     <div class="volume">
       <i id="volumeIcon" class="fas fa-volume-up"></i>
     </div>
   </div>
-  
-
 
   <script src="script.js"></script>
 </body>

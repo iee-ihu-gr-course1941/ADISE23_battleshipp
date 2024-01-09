@@ -37,20 +37,50 @@ startButton.addEventListener('click', function() {
 
 
 
-// Function to display the modal for the BATTLE SCORE
-function openModal() {
-  document.getElementById('popupModal').style.display = 'block';
+// Get the rules button and modal
+var rulesButton = document.getElementById('rulesButton');
+var rulesModal = document.getElementById('rulesModal');
+
+// When the rules button is clicked, display the rules modal
+rulesButton.onclick = function() {
+  rulesModal.style.display = 'block';
 }
 
-// Function to close the modal
-function closeModal() {
-  document.getElementById('popupModal').style.display = 'none';
+// Close the rules modal when the 'x' is clicked
+var rulesCloseBtn = document.getElementsByClassName('close')[0];
+rulesCloseBtn.onclick = function() {
+  rulesModal.style.display = 'none';
 }
 
-// 'Battle Score' button click event to show the modal
-document.getElementById('scoreButton').addEventListener('click', function() {
-  openModal();
-});
+// Close the rules modal if user clicks outside the modal content
+window.onclick = function(event) {
+  if (event.target == rulesModal) {
+    rulesModal.style.display = 'none';
+  }
+}
+
+// Get the score button and modal
+var scoreButton = document.getElementById('scoreButton');
+var scoreModal = document.getElementById('scoreModal');
+
+// When the score button is clicked, display the score modal
+scoreButton.onclick = function() {
+  scoreModal.style.display = 'block';
+}
+
+// Close the score modal when the 'x' is clicked
+var scoreCloseBtn = document.getElementsByClassName('close')[1];
+scoreCloseBtn.onclick = function() {
+  scoreModal.style.display = 'none';
+}
+
+// Close the score modal if user clicks outside the modal content
+window.onclick = function(event) {
+  if (event.target == scoreModal) {
+    scoreModal.style.display = 'none';
+  }
+}
+
 
 
 
