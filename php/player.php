@@ -9,12 +9,12 @@ function getPlayer($playerId) {
 
     $st->execute();
     $res = $st->get_result();
-    $res->fetch_assoc(); // Remove the unused variable assignment
-
+    $row = $res->fetch_assoc();
+ 
     $player = [
         'id' => $playerId,
-        'name' => 'John Doe',
-        'score' => 100
+        'name' => $row['username'],
+        
     ];
 
     return $player;
@@ -24,12 +24,12 @@ function getPlayer($playerId) {
 function insertPlayer($playerName) {
     global $mysqli;
 
-    $sql = "INSERT INTO user (username) VALUES ?";
+    $sql = "INSERT INTO user (username) VALUES (?)";
     
     $st = $mysqli->prepare($sql);
     $st->bind_param("s", $playerName);
     $st->execute();
-
+    return getPlayer($st->insert_id);
     
 }
 ?>

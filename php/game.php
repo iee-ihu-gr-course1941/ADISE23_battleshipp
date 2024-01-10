@@ -18,7 +18,19 @@
         $stmt->execute();
         $result = $stmt->get_result();
         $game = $result->fetch_assoc();
+       
         return $game;
+    }
+
+    function join_game($playerId) {
+        global $mysqli;
+        $stmt = $mysqli->prepare("CALL Assignplayer(?,@gameid)");
+        $stmt->bind_param("i", $playerId);
+        $stmt->execute(); 
+        $result = $mysqli->query("SELECT @gameId");
+        $row = $result->fetch_assoc();
+        $gameId = $row['@gameId'];
+        return get_game($gameId);
     }
 
 ?>

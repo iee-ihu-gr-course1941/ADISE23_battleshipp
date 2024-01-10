@@ -6,11 +6,12 @@
 
     $user=$DB_USER;
     $pass=$DB_PASS;
+    $user2=$DB_USER2;
         
 
 
     if(gethostname()=='users.iee.ihu.gr') {
-        $mysqli = new mysqli($host, $user, $pass, $db, null, '/home/student/iee/2019/iee2019119/mysql/run/mysql.sock');
+        $mysqli = new mysqli($host, $user2, $pass, $db, null, '/home/student/iee/2019/iee2019119/mysql/run/mysql.sock');
     } else {
         $pass = null;
         $mysqli = new mysqli($host, $user, $pass, $db);
