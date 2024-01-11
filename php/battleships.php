@@ -1,4 +1,9 @@
 <?php        
+
+header("Content-Type: application/json");
+header("Access-Control-Allow-Origin: *");
+header("Access-Control-Allow-Methods: GET, POST, OPTIONS");
+header("Access-Control-Allow-Headers: Content-Type");
         require_once('config.php');
         require_once('board.php');
         require_once('game.php');
@@ -105,7 +110,9 @@ function handle_blue_cell($method, $gameId, $row, $col, $input) {
              return;
          }
         $hit = check_hit_on_blue($gameId, $row, $col);
-        print json_encode(['hit' => $hit]);
+        $blue_board = show_board_blue($gameId);
+        $all_sunk = are_all_ships_sunk($blue_board);
+        print json_encode(['hit' => $hit, 'all_sunk' => $all_sunk]);
     } else if ($method == 'PUT') {
         set_ship($gameId, 'blue', $input['cells']);
         if (all_ships_set($gameId)) { 
@@ -145,7 +152,9 @@ function handle_red_cell($method, $gameId, $row, $col, $input) {
              return;
          }
         $hit = check_hit_on_red($gameId, $row, $col);
-        print json_encode(['hit' => $hit]);
+        $blue_board = show_board_blue($gameId);
+        $all_sunk = are_all_ships_sunk($blue_board);
+        print json_encode(['hit' => $hit, 'all_sunk' => $all_sunk]);
     } else if ($method == 'PUT') {
         set_ship($gameId, 'red', $input['cells']);
         if (all_ships_set($gameId)) { // assuming you have a function that checks if all ships are set

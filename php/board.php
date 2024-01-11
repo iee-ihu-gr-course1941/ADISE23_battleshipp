@@ -1,6 +1,11 @@
 
 <?php
 
+header("Content-Type: application/json");
+header("Access-Control-Allow-Origin: *");
+header("Access-Control-Allow-Methods: GET, POST, OPTIONS");
+header("Access-Control-Allow-Headers: Content-Type");
+
 function show_board_blue($gameid) {
     global $mysqli;
 
@@ -132,8 +137,8 @@ function set_ship($gameid, $color, $cells) {
         $blue_ships = count_ships($blue_board);
         $red_ships = count_ships($red_board);
 
-        // Assuming each player should set 5 ships
-        return $blue_ships == 5 && $red_ships == 5;
+        // Change the total number of ships to 10 for each player
+        return $blue_ships == 10 && $red_ships == 10;
     }
 
     function count_ships($board) {

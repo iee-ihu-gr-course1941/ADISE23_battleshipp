@@ -2,11 +2,11 @@
 
     $host = 'localhost';
     $db = 'battleships';
-    require_once "db_upass.php";
+    // require_once "db_upass.php";
 
-    $user=$DB_USER;
-    $pass=$DB_PASS;
-    $user2=$DB_USER2;
+    $user="root";
+    $pass="";
+    // $user2=$DB_USER2;
         
 
 
