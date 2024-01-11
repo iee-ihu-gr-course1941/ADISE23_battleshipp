@@ -1,21 +1,26 @@
-// Add functionality for volume icon (mute/unmute)
-let volumeIcon = $('#volumeIcon');
-let isMuted = false;
-let audio = new Audio('C:\\Users\\spyro\\Downloads\\adise_sound.mp3'); // Replace 'path_to_your_audio_file.mp3' with the actual path to your audio file
+    // Add functionality for volume icon (mute/unmute)
+    let volumeIcon = document.getElementById('volumeIcon');
+    let isMuted = false;
+    let audio = new Audio('./adisesound.mp3'); // Replace 'path_to_your_audio_file.mp3' with the actual path to your audio file
 
-volumeIcon.on('click', () => {
-  if (isMuted) {
-    volumeIcon.removeClass('fa-volume-mute').addClass('fa-volume-up');
-    isMuted = false;
-    audio.pause(); // Pause audio when muted
-  } else {
-    volumeIcon.removeClass('fa-volume-up').addClass('fa-volume-mute');
-    isMuted = true;
-    audio.play(); // Play audio when unmuted
-  }
-});
+    volumeIcon.addEventListener('click', () => {
+      if (isMuted) {
+        volumeIcon.classList.remove('fa-volume-mute');
+        volumeIcon.classList.add('fa-volume-up');
+        isMuted = false;
+        audio.muted = false; // Unmute audio
+        audio.play(); // Play audio when unmuted
+      } else {
+        volumeIcon.classList.remove('fa-volume-up');
+        volumeIcon.classList.add('fa-volume-mute');
+        isMuted = true;
+        audio.muted = true; // Mute audio
+        audio.pause(); // Pause audio when muted
+      }
+    });
 
 
+  
 
 
 // Select the start button
@@ -29,9 +34,6 @@ $('#startButton').on('click', function() {
     // Add logic to handle resuming the game
   }
 });
-
-
-
 
 
 
@@ -92,7 +94,7 @@ $(document).ready(function() {
   // Log In button click event listener
   $('#loginButton').on('click', function() {
     // Open a pop-up window when Log In button is clicked
-    window.open('login.html', 'LoginWindow', 'width=400,height=400');
+    window.open('./html/login.html', 'LoginWindow', 'width=400,height=400');
   });
 
   // Event listener for page load
@@ -282,4 +284,30 @@ table.addEventListener('click', function(event) {
 $('#loginButton').on('click', function() {
   // Ανοίξτε ένα μεγαλύτερο παράθυρο όταν κάνετε κλικ στο κουμπί Σύνδεση
   window.open('login.html', 'LoginWindow', 'width=5020,height=400');
+});
+
+
+// document.getElementById('attackButton').addEventListener('click', function() {
+//   let blurElement = document.querySelector('.blur');
+
+//   // Add the "blur2" class
+//   blurElement.classList.add('blur2');
+
+//   // Remove the "blur2" class after 200ms
+//   setTimeout(function() {
+//       blurElement.classList.remove('blur2');
+//   }, 200);
+// });
+
+
+document.getElementById('attackButton').addEventListener('click', function() {
+  let blurElement = document.querySelector('.blur');
+
+  // Change background color to white
+  blurElement.style.backgroundColor = 'rgba(255, 255, 255, 0.5)';
+
+  // Remove the white background color after 100ms
+  setTimeout(function() {
+      blurElement.style.backgroundColor = 'transparent';
+  }, 100);
 });
