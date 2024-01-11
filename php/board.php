@@ -96,7 +96,58 @@ function check_hit_on_blue($gameid,$x_param,$y_param){
     }
 }
 
+function set_ship($gameid, $color, $cells) {
+    global $mysqli;
+
+    // Select the correct board based on the color
+    $sql = "SELECT " . $color . "_board FROM game WHERE id = $gameid";
+    $st = $mysqli->prepare($sql);
+    $st->execute();
+    $res = $st->get_result();
+    $row = $res->fetch_assoc();
+    $board = json_decode($row[$color . "_board"], true); // decode the json string to an array
+    $board = $board['board'];
+
+    // Set the is_ship field of each cell to true
+    foreach ($cells as $cell) {
+        $board[$cell['x']][$cell['y']]['is_ship'] = true;
+    }
+
+    // Encode the array to a json string
+    $new_board = json_encode(['board' => $board]);
+
+    // Update the board in the database
+    $sql = "UPDATE game SET " . $color . "_board = ? WHERE id = ?";
+    $st = $mysqli->prepare($sql);
+    $st->bind_param("si", $new_board, $gameid);
+    $st->execute();
+}
 
 
+
+    function all_ships_set($gameId) {
+        $blue_board = show_board_blue($gameId);
+        $red_board = show_board_red($gameId);
+
+        $blue_ships = count_ships($blue_board);
+        $red_ships = count_ships($red_board);
+
+        // Assuming each player should set 5 ships
+        return $blue_ships == 5 && $red_ships == 5;
+    }
+
+    function count_ships($board) {
+        $ships = 0;
+
+        foreach ($board as $row) {
+            foreach ($row as $cell) {
+                if ($cell['is_ship']) {
+                    $ships++;
+                }
+            }
+        }
+
+        return $ships;
+    }
 
 ?>
