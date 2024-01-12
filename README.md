@@ -1,12 +1,12 @@
-# ADISE23_battleshipp
-
 get /battleship/php/battleships.php/game/{gameid}'
 
     This endpoint retrieves information about the battleship game with the {gameID}
     The request does not include a request body.
     The response will have a status code of 200, indicating a successful request, and will return the details of the battleship game.
 
-put /battleship/php/battleships.php/game/' --header 'Content-Type: text/plain' --data '{
+put /battleship/php/battleships.php/game/'
+
+input:'{
     "playerId" : "1"
 }'
 
@@ -50,5 +50,4 @@ GET battleship/php/battleships.php/player/{playerID}
 post battleship/php/battleships.php/player
     This endpoint allows you to add a new player for the battleship game.
     ith a JSON payload in the raw request body type. The payload should include the player's name in the "playerName" field.
-
 
