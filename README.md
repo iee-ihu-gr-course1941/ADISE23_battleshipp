@@ -17,6 +17,7 @@ input:'{
 
 
 GET battleships.php/game/{gameId}/blueBoard'
+
     This HTTP GET request retrieves the blue board for a specific game in the Battleship game. The blue board represents the player's own board with their ships and the opponent's hits and misses.
     The request does not contain a request body.
 
@@ -24,6 +25,7 @@ GET battleships.php/game/{gameId}/blueBoard'
 
 
 POST battleships.php/game/{gameId}/blueBoard'
+
     This HTTP POST request is used to reset the blue board for a specific game in the Battleship game. The gameId path parameter is used to specify the game for which the blue board is being reset.
 
 
@@ -34,13 +36,17 @@ post battleship/php/battleships.php/game/{gameId}/blueBoard/cell/{x}/{y}
     ecified URL. Replace {gameId}, {x}, and {y} with the actual game ID, x-coordinate, and y-coordinate respectively.
 
 PUT battleship/php/battleships.php/game/{gameId}/blueBoard/cell/{x}/{y}
+
     rdinate, and y coordinate.
+
+    
 
 same for red board
 
 
 
 GET battleship/php/battleships.php/player/{playerID}
+
     This endpoint retrieves information about a specific player's battleship game using the player's ID.
     Request
     Path Parameters
@@ -48,6 +54,7 @@ GET battleship/php/battleships.php/player/{playerID}
 
 
 post battleship/php/battleships.php/player
+
     This endpoint allows you to add a new player for the battleship game.
     ith a JSON payload in the raw request body type. The payload should include the player's name in the "playerName" field.
 
